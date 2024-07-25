@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui;  /*font of entire webpage*/
+}
+
+
+.app{
+    display: flex;
+    justify-content: center; /*center from left or right*/
+    align-items: center;  /*center from up or down*/
+    height: 800px; /*heigh from top*/
+}
+
+.calculator{  /*entire*/
+    background-color: #9fa1a5;
+    width: 100%;
+    max-width: 400px;  /*max width of calculator*/
+    min-height: 700px; /*min height of calculator*/
+    display: flex;
+    flex-direction: column; /*want the input at top*/
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.display{  /*input and output display grid*/
+    min-height: 200px;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;  /*type starts from right*/
+    align-items: flex-end; /*type starts from bottom*/
+    color: rgb(79, 60, 60);  /*text color*/
+    text-align: right;
+    flex: 1 1 auto;
+}
+
+.display .input{
+    font-size: 40px;  /*user input text size*/
+    margin-bottom: 10px;  /*space between input and output texts*/
+}
+
+.display .output{   /*calculated output text*/
+    font-size:  70px;  
+    font-weight: 600;  /*text in bold*/
+    width: 380px;
+    /*max-width: 50px;*/
+    overflow: auto;  /*auto scroll for long output*/
+}
+
+.keys{
+    background-color: #292D36;
+    padding: 25px;  /*padding for all data-keys*/
+    border-radius: 25px 25px 0 0; /*border for keys area(black)*/
+    display: grid;
+    grid-template-columns: repeat(4, 75px);  /*4 columns of data-keys, each key = 75px*/
+    grid-template-rows: repeat(5, 75px);  /*5 rows of data-keys, each key = 75px*/
+    grid-gap: 1rem;  /*splits the gap between data-keys*/
+    box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.2);
+}
+
+.keys .key{
+    position: relative;  /*fit the key boxes*/
+    height: 0;
+    padding-top: 100%;  /*box with all padding and no height*/
+    background-color: #22252e;  /*box color*/
+    border-radius: 20px;  /*border for keys*/
+    user-select: none;   /*unable to select*/
+}
+
+.keys .key span{
+    position: absolute;   /*overlaps key boxes*/
+    top: 50%;  /*aligns vertically*/
+    left: 50%; /*aligns horizontally*/
+    transform: translate(-50%, -50%);  /*translates coordinates to the middle of keys*/
+    font-size: 35px;
+    font-weight: 650;
+    color: #FFFFFF;
+}
+
+.keys .key:hover{
+    box-shadow: inset 0px 0px 16px rgb(0, 0, 0);  /*display inner shadow when hovering over a key*/
+}
+
+.keys .key.operator span, 
+.keys .key.action span{
+    color: #26FED7;   /*color for all key operators other than numbers & decimal*/
+}
+
+
+/*js issue - 8x(x9)*/
